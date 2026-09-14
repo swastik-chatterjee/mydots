@@ -1,0 +1,124 @@
+# ╭──────────────────────────────────────────────╮
+# │ Ghostty — Gruvbox G.O.A.T.                  │
+# │ Warm • High Contrast • Minimal • AAA-minded  │
+# ╰──────────────────────────────────────────────╯
+
+# ── Font ────────────────────────────────────────
+font-family = SauceCodePro Nerd Font
+font-size = 12
+
+# ── Window ──────────────────────────────────────
+window-decoration = true
+window-padding-x = 12
+window-padding-y = 12
+
+background-opacity = 1.0
+background-blur-radius = 32
+
+gtk-titlebar = true
+
+# ── Cursor ──────────────────────────────────────
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+cursor-color = #FABD2F
+
+# ── Scrollback ──────────────────────────────────
+scrollback-limit = 3023
+
+# ── Terminal behavior ───────────────────────────
+copy-on-select = false
+confirm-close-surface = false
+
+# Disable Ghostty in-app toast notifications
+app-notifications = false
+
+# ── Shell integration ───────────────────────────
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,no-cursor
+
+# Shift+Enter → literal newline
+keybind = shift+enter=text:\n
+
+# ── Keybindings ─────────────────────────────────
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+t=new_tab
+
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# ── Splits ───────────────────────────────────────
+unfocused-split-opacity = 0.7
+unfocused-split-fill = #3C3836
+
+# ── GTK ─────────────────────────────────────────
+gtk-single-instance = true
+
+# ── Theme ────────────────────────────────────────
+# Gruvbox-inspired
+#
+# Base:
+#   bg       = #1D2021
+#   fg       = #F2E5BC
+#
+# Philosophy:
+#   Warm enough to feel Gruvbox
+#   Bright enough for excellent readability
+#   No transparency-dependent contrast
+#
+# ── Base colors ─────────────────────────────────
+
+background = #1D2021
+foreground = #F2E5BC
+
+# ── Normal palette ──────────────────────────────
+# black
+palette = 0=#1D2021
+
+# red
+palette = 1=#FB4934
+
+# green
+palette = 2=#B8BB26
+
+# yellow
+palette = 3=#FABD2F
+
+# blue
+palette = 4=#83A598
+
+# purple
+palette = 5=#D3869B
+
+# aqua
+palette = 6=#8EC07C
+
+# light foreground
+palette = 7=#F2E5BC
+
+# ── Bright palette ─────────────────────────────
+# bright black
+palette = 8=#928374
+
+# bright red
+palette = 9=#FF665C
+
+# bright green
+palette = 10=#C8D96B
+
+# bright yellow
+palette = 11=#FFD75F
+
+# bright blue
+palette = 12=#9CC2B8
+
+# bright purple
+palette = 13=#E0A6BA
+
+# bright aqua
+palette = 14=#A8D99A
+
+# bright white
+palette = 15=#FFF4D0
