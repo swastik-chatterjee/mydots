@@ -1,0 +1,193 @@
+{
+    // ============================================================
+    // ZEN
+    // Minimal Waybar workspace pill
+    // ============================================================
+
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+
+    // ============================================================
+    // Module Layout
+    // ============================================================
+
+    "modules-left": [
+        "clock"
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "tray",
+        "battery",
+        "network",
+        "pulseaudio",
+        "bluetooth",
+        "custom/power"
+    ],
+
+    // ============================================================
+    // Battery
+    // ============================================================
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+
+        "format": "{icon}",
+        "format-charging": "{icon}",
+        "format-plugged": "󰚥",
+
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰂉",
+                "󰂊",
+                "󰂋",
+                "󰂌",
+                "󰂍",
+                "󰂎",
+                "󰂅"
+            ],
+
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰂃",
+                "󰁹"
+            ]
+        },
+
+        "tooltip-format": "Battery: {capacity}%\nClick to change brightness",
+
+        "on-click": "BAT=$(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo 'N/A') && BRIGHTNESS=$(brightnessctl get) && MAX=$(brightnessctl max) && PCT=$((BRIGHTNESS * 100 / MAX)) && NEW_VAL=$(zenity --entry --title='Screen Brightness' --text=\"Battery: ${BAT}%\\nCurrent Brightness: ${PCT}%\\n\\nEnter new brightness (% or absolute value):\" --entry-text=\"${PCT}%\") && brightnessctl set \"$NEW_VAL\""
+    },
+
+    // ============================================================
+    // Power
+    // ============================================================
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout -b 2"
+    },
+
+    // ============================================================
+    // Workspaces
+    // ============================================================
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+
+    // ============================================================
+    // Clock
+    // ============================================================
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%S:%M:%H}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // ============================================================
+    // Bluetooth
+    // ============================================================
+
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+
+        "on-click": "blueman-manager"
+    },
+
+    // ============================================================
+    // Network
+    // ============================================================
+
+    "network": {
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰌘",
+        "format-disconnected": "󰤭",
+
+        "on-click": "nmgui",
+
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected"
+    },
+
+    // ============================================================
+    // Audio
+    // ============================================================
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+
+        "on-click": "pavucontrol"
+    },
+
+    // ============================================================
+    // System Tray
+    // ============================================================
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 6
+    }
+}
